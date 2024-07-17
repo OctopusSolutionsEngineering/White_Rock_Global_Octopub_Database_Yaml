@@ -4,7 +4,7 @@ variable "Project.Worker.Pool" {
     value "azure-worker-pool" {}
 }
 
-variable "Octopus.Azure.Account" {
+variable "old-Octopus.Azure.Account" {
     type = "AzureAccount"
 
     value "demo-octopus-app" {
