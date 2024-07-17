@@ -1,7 +1,7 @@
 step "create-namespace-if-not-exists" {
     name = "Create namespace if not exists"
     properties = {
-        Octopus.Action.TargetRoles = "demo-k8s-cluster"
+        Octopus.Action.TargetRoles = "octopub"
     }
 
     action {
@@ -26,7 +26,7 @@ step "create-namespace-if-not-exists" {
                 {
                 	Write-Host "Namespace $clusterNamespace already exists, moving on ..."
                 }
-                    EOT
+                EOT
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
         }
@@ -283,7 +283,7 @@ step "mysql-create-database-if-not-exists" {
                     	Close-SqlConnection -ConnectionName $connectionName
                     }
                 }
-                    EOT
+                EOT
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
         }
@@ -905,7 +905,7 @@ step "flyway-database-migrations" {
                 {
                   	New-OctopusArtifact -Path $reportFile -Name "$($flywayStepName)_$($flywayEnvironment)_$($currentDateFormatted)_report.html"
                 }
-                    EOT
+                EOT
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
             OctopusUseBundledTooling = "False"
@@ -933,7 +933,7 @@ step "flyway-database-migrations" {
 step "deploy-database-secret" {
     name = "Deploy database secret"
     properties = {
-        Octopus.Action.TargetRoles = "demo-k8s-cluster"
+        Octopus.Action.TargetRoles = "octopub"
     }
 
     action {
